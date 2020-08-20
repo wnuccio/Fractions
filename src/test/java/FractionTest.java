@@ -26,6 +26,17 @@ public class FractionTest {
         assertEquals(new Fraction(3, 6), new Fraction(1,2));
     }
 
+    @Test
+    public void reduced_fractions_equals() {
+        assertEquals(new Fraction(6, 3), new Fraction(12,6));
+    }
+
+    @Ignore
+    @Test
+    public void reduction_when_num_and_den_have_common_divisor() {
+        assertEquals(new Fraction(6, 9), new Fraction(2,3));
+    }
+
     @Ignore
     @Test
     public void return_sum_between_int_and_fraction_with_not_reduced_result() {
