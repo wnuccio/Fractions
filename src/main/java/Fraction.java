@@ -1,9 +1,11 @@
 public class Fraction {
-    public Fraction(int num, int den) {
-    }
+    private final int num;
+
+//    public Fraction(int num, int den) {
+//    }
 
     public Fraction(int num) {
-
+        this.num = num;
     }
 
     @Override
