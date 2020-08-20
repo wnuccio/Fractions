@@ -10,7 +10,7 @@ public class Fraction {
             den = 1;
         }
 
-        if (den % num == 0) {
+        if (num != 0 && den % num == 0) {
             den = den / num;
             num = 1;
         }

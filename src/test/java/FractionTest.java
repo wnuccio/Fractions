@@ -37,7 +37,6 @@ public class FractionTest {
         assertEquals(new Fraction(6, 9), new Fraction(2, 3));
     }
 
-    @Ignore
     @Test
     public void fraction_plus_zero_remain_the_same() {
         assertEquals(new Fraction(3, 4), new Fraction(3, 4).plus(new Fraction(0)));
