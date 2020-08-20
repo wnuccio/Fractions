@@ -1,11 +1,19 @@
 public class Fraction {
     private final int num;
+    private final int den;
 
-//    public Fraction(int num, int den) {
-//    }
+    public Fraction(int num, int den) {
+        if (num % den == 0) {
+            num = num / den;
+            den = 1;
+        }
+
+        this.num = num;
+        this.den = den;
+    }
 
     public Fraction(int num) {
-        this.num = num;
+        this(num, 1);
     }
 
     @Override
