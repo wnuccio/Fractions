@@ -8,6 +8,11 @@ public class Fraction {
             den = 1;
         }
 
+        if (den % num == 0) {
+            den = den / num;
+            num = 1;
+        }
+
         this.num = num;
         this.den = den;
     }

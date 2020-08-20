@@ -17,8 +17,13 @@ public class FractionTest {
 
 
     @Test
-    public void fractions_with_same_reduction_are_equals() {
+    public void reduction_when_num_divisible_for_den() {
         assertEquals(new Fraction(6, 3), new Fraction(2));
+    }
+
+    @Test
+    public void reduction_when_den_divisible_for_num() {
+        assertEquals(new Fraction(3, 6), new Fraction(1,2));
     }
 
     @Ignore
