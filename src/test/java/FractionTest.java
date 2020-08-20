@@ -2,6 +2,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FractionTest {
 
@@ -24,6 +25,18 @@ public class FractionTest {
     @Test
     public void reduction_when_den_divisible_for_num() {
         assertEquals(new Fraction(3, 6), new Fraction(1, 2));
+    }
+
+    @Test
+    public void fractions_equals() {
+        assertEquals(new Fraction(3, 4), new Fraction(3, 4));
+        assertEquals(new Fraction(3, 2), new Fraction(3, 2));
+    }
+
+    @Test
+    public void fractions_not_equals() {
+        assertNotEquals(new Fraction(1, 3), new Fraction(1, 4));
+        assertNotEquals(new Fraction(1, 3), new Fraction(2, 3));
     }
 
     @Test
@@ -54,9 +67,10 @@ public class FractionTest {
         assertEquals(new Fraction(5), new Fraction(2).plus(new Fraction(3)));
     }
 
-//    @Ignore
-//    @Test
-//    public void addTwoFractions() {
-//        assertEquals(new Fraction(43,15), new Fraction(7,3).add(new Fraction(4,5)));
-//    }
+
+    @Test
+    @Ignore
+    public void addTwoFractions() {
+        assertEquals(new Fraction(43,15), new Fraction(7,3).plus(new Fraction(4,5)));
+    }
 }

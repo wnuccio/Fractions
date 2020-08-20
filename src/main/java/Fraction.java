@@ -27,7 +27,7 @@ public class Fraction {
     public boolean equals(Object obj) {
         if (! (obj instanceof Fraction)) return false;
         Fraction oth = (Fraction) obj;
-        return this.num == oth.num;
+        return this.num == oth.num && this.den == oth.den;
     }
 
     public Fraction plus(Fraction fraction) {
@@ -38,6 +38,7 @@ public class Fraction {
     public String toString() {
         return "Fraction{" +
                 "num=" + num +
+                ", den=" + den +
                 '}';
     }
 }
