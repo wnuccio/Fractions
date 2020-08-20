@@ -10,10 +10,19 @@ public class Fraction {
 
     @Override
     public boolean equals(Object obj) {
-        return true;
+        if (! (obj instanceof Fraction)) return false;
+        Fraction oth = (Fraction) obj;
+        return this.num == oth.num;
     }
 
-    public Fraction add(Fraction fraction) {
-        return new Fraction(0);
+    public Fraction plus(Fraction fraction) {
+        return new Fraction(this.num + fraction.num);
+    }
+
+    @Override
+    public String toString() {
+        return "Fraction{" +
+                "num=" + num +
+                '}';
     }
 }
