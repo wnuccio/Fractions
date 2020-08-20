@@ -23,18 +23,30 @@ public class FractionTest {
 
     @Test
     public void reduction_when_den_divisible_for_num() {
-        assertEquals(new Fraction(3, 6), new Fraction(1,2));
+        assertEquals(new Fraction(3, 6), new Fraction(1, 2));
     }
 
     @Test
     public void reduced_fractions_equals() {
-        assertEquals(new Fraction(6, 3), new Fraction(12,6));
+        assertEquals(new Fraction(6, 3), new Fraction(12, 6));
     }
 
     @Ignore
     @Test
     public void reduction_when_num_and_den_have_common_divisor() {
-        assertEquals(new Fraction(6, 9), new Fraction(2,3));
+        assertEquals(new Fraction(6, 9), new Fraction(2, 3));
+    }
+
+    @Ignore
+    @Test
+    public void fraction_plus_zero_remain_the_same() {
+        assertEquals(new Fraction(3, 4), new Fraction(3, 4).plus(new Fraction(0)));
+        assertEquals(new Fraction(3, 4), new Fraction(0).plus(new Fraction(3, 4)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cannot_instantiate_fractions_with_zero_at_denominator() {
+        new Fraction(2, 0);
     }
 
     @Ignore
