@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -101,5 +102,18 @@ public class FractionTest {
     @Test
     void fraction_minus_fraction_returns_fraction() {
         assertEquals(Fraction.of(-7, 6), Fraction.of(4, 3).minus(Fraction.of(5, 2)));
+    }
+
+    @Test
+    void zero_fraction_has_always_1_as_denominator() {
+        assertEquals(Fraction.of(0), Fraction.of(0, 1));
+        assertEquals(Fraction.of(0), Fraction.of(0, 3));
+    }
+
+    @Test
+    void zero_fraction_has_no_meaningful_sign() {
+        assertEquals(Fraction.of(0), Fraction.of(-0));
+        assertEquals(Fraction.of(0), Fraction.of(-0, 3));
+        assertEquals(Fraction.of(0), Fraction.of(0, -3));
     }
 }

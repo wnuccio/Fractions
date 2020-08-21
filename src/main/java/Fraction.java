@@ -16,16 +16,25 @@ public class Fraction {
         return new Fraction(_num, _den);
     }
 
-    private static Fraction defineSign(Fraction f) {
-        int _num = f.num * (int)(Math.signum(f.num) * Math.signum(f.den));
-        int _den = Math.abs(f.den);
-        return new Fraction(_num, _den);
+    private static int defineSign(Fraction f) {
+        return (int)(Math.signum(f.num) * Math.signum(f.den));
     }
 
     private static Fraction normalize(Fraction original) {
-        Fraction reduced = reduceToLowerTerms(original);
-        Fraction signDefined = defineSign(reduced);
-        return signDefined;
+        if (original.den == 0) throw new IllegalArgumentException("Den cannot be zero");
+        if (original.num == 0) return Fraction.of(0);
+
+        int numSign = defineSign(original);
+
+        Fraction result = reduceToLowerTerms(original);
+        result = applySign(result, numSign);
+        return result;
+    }
+
+    private static Fraction applySign(Fraction fraction, int numSign) {
+        int num = Math.abs(fraction.num) * numSign;
+        int den = Math.abs(fraction.den);
+        return new Fraction(num, den);
     }
 
     private static boolean hasFactor(int number, int primeNumber) {
@@ -38,12 +47,11 @@ public class Fraction {
     }
 
     public static Fraction of(int num, int den) {
-        if (den == 0) throw new IllegalArgumentException("Den cannot be zero");
         return normalize(new Fraction(num, den));
     }
 
     public static Fraction of(int num) {
-        return of(num, 1);
+        return new Fraction(num, 1);
     }
 
     @Override
