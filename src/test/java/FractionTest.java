@@ -1,8 +1,7 @@
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FractionTest {
 
@@ -44,24 +43,25 @@ public class FractionTest {
         assertEquals(new Fraction(6, 3), new Fraction(12, 6));
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void reduction_when_num_and_den_have_common_divisor() {
         assertEquals(new Fraction(6, 9), new Fraction(2, 3));
     }
 
+    @Disabled
     @Test
     public void fraction_plus_zero_remain_the_same() {
         assertEquals(new Fraction(3, 4), new Fraction(3, 4).plus(new Fraction(0)));
         assertEquals(new Fraction(3, 4), new Fraction(0).plus(new Fraction(3, 4)));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void cannot_instantiate_fractions_with_zero_at_denominator() {
-        new Fraction(2, 0);
+        assertThrows(IllegalArgumentException.class, () -> new Fraction(2, 0));
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void return_sum_between_int_and_fraction_with_not_reduced_result() {
         assertEquals(new Fraction(5), new Fraction(2).plus(new Fraction(3)));
@@ -69,7 +69,7 @@ public class FractionTest {
 
 
     @Test
-    @Ignore
+    @Disabled
     public void addTwoFractions() {
         assertEquals(new Fraction(43,15), new Fraction(7,3).plus(new Fraction(4,5)));
     }
