@@ -140,4 +140,9 @@ public class FractionTest {
     void multiply_by_one_returns_same_fraction() {
         assertEquals(Fraction.of(3, 4), Fraction.of(3, 4).multiply(Fraction.of(1)));
     }
+
+    @Test
+    void multiply_by_inverse_returns_one() {
+        assertEquals(Fraction.of(1), Fraction.of(3, 4).multiply(Fraction.of(4, 3)));
+    }
 }
