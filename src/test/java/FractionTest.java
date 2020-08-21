@@ -125,4 +125,9 @@ public class FractionTest {
     void fraction_divide_fraction_returns_fraction() {
         assertEquals(Fraction.of(8, 15), Fraction.of(4, 3).divide(Fraction.of(5, 2)));
     }
+
+    @Test
+    void multiply_by_zero_returns_zero() {
+        assertEquals(Fraction.of(0), Fraction.of(3, 4).multiply(Fraction.of(0)));
+    }
 }
