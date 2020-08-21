@@ -72,4 +72,8 @@ public class Fraction {
     public Fraction inverse() {
         return Fraction.of(this.den, this.num);
     }
+
+    public Fraction minus(Fraction other) {
+        return this.plus(new Fraction(-other.num, other.den));
+    }
 }

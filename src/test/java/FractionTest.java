@@ -97,4 +97,9 @@ public class FractionTest {
     void cannot_invert_a_zero_fraction() {
         assertThrows(IllegalArgumentException.class, () -> Fraction.of(0).inverse());
     }
+
+    @Test
+    void fraction_minus_fraction_returns_fraction() {
+        assertEquals(Fraction.of(-7, 6), Fraction.of(4, 3).minus(Fraction.of(5, 2)));
+    }
 }
