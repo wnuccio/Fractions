@@ -2,16 +2,30 @@ public class Fraction {
     private final int num;
     private final int den;
 
-    private static Fraction reduceToLowerTerms(int num, int den) {
+    private static Fraction reduceToLowerTerms(Fraction f) {
+        int _num = Math.abs(f.num);
+        int _den = Math.abs(f.den);
+
         int[] primeNumbers = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
         for (int p: primeNumbers) {
-            while (hasFactor(num, p) && hasFactor(den, p)) {
-                num = num / p;
-                den = den / p;
+            while (hasFactor(_num, p) && hasFactor(_den, p)) {
+                _num = _num / p;
+                _den = _den / p;
             }
         }
+        return new Fraction(_num, _den);
+    }
 
-        return new Fraction(num, den);
+    private static Fraction defineSign(Fraction f) {
+        int _num = f.num * (int)(Math.signum(f.num) * Math.signum(f.den));
+        int _den = Math.abs(f.den);
+        return new Fraction(_num, _den);
+    }
+
+    private static Fraction normalize(Fraction original) {
+        Fraction reduced = reduceToLowerTerms(original);
+        Fraction signDefined = defineSign(reduced);
+        return signDefined;
     }
 
     private static boolean hasFactor(int number, int primeNumber) {
@@ -25,11 +39,7 @@ public class Fraction {
 
     public static Fraction of(int num, int den) {
         if (den == 0) throw new IllegalArgumentException("Den cannot be zero");
-        if (den < 0) {
-            num = -num;
-            den = -den;
-        }
-        return reduceToLowerTerms(num, den);
+        return normalize(new Fraction(num, den));
     }
 
     public static Fraction of(int num) {

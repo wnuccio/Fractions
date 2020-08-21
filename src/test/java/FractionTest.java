@@ -82,7 +82,6 @@ public class FractionTest {
         assertEquals(Fraction.of(2, 3), Fraction.of(-2, -3));
     }
 
-    @Disabled
     @Test
     void reduction_on_fraction_with_sign() {
         assertEquals(Fraction.of(-2), Fraction.of(-6, 3));
