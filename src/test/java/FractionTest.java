@@ -59,15 +59,14 @@ public class FractionTest {
         assertThrows(IllegalArgumentException.class, () -> Fraction.of(2, 0));
     }
 
-    @Disabled
     @Test
     public void addTwoFractions() {
-        assertEquals(Fraction.of(43,15), Fraction.of(7,3).plus(Fraction.of(4,5)));
+        assertEquals(Fraction.of(47,15), Fraction.of(7,3).plus(Fraction.of(4,5)));
     }
 
     @Disabled
     @Test
-    public void return_sum_between_int_and_fraction_with_not_reduced_result() {
-        assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
+    void add_between_two_fractions_returns_an_int() {
+        assertEquals(Fraction.of(1), Fraction.of(1, 3).plus(Fraction.of(2, 3)));
     }
 }

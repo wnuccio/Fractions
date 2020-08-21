@@ -35,10 +35,12 @@ public class Fraction {
         return this.num == oth.num && this.den == oth.den;
     }
 
-    public Fraction plus(Fraction fraction) {
-        if (fraction.num == 0) return this;
-        if (this.num == 0) return fraction;
-        return Fraction.of(this.num + fraction.num);
+    public Fraction plus(Fraction other) {
+        int newDen = this.den * other.den;
+        int newNum1 = (newDen / this.den) * this.num;
+        int newNum2 = (newDen / other.den) * other.num;
+        int newNum = newNum1 + newNum2;
+        return Fraction.of(newNum, newDen);
     }
 
     @Override
