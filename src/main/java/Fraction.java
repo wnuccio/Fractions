@@ -88,4 +88,8 @@ public class Fraction {
     public Fraction multiply(Fraction other) {
         return Fraction.of(this.num * other.num, this.den * other.den);
     }
+
+    public Fraction divide(Fraction other) {
+        return this.multiply(other.inverse());
+    }
 }

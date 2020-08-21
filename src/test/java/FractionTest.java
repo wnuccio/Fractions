@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -90,8 +89,8 @@ public class FractionTest {
     @Test
     void inverse_of_fraction() {
         assertEquals(Fraction.of(4, 3), Fraction.of(3, 4).inverse());
-        assertEquals(Fraction.of(3, 4), Fraction.of(4,3).inverse());
-        assertEquals(Fraction.of(-3, 4), Fraction.of(-4,3).inverse());
+        assertEquals(Fraction.of(3, 4), Fraction.of(4, 3).inverse());
+        assertEquals(Fraction.of(-3, 4), Fraction.of(-4, 3).inverse());
     }
 
     @Test
@@ -120,5 +119,10 @@ public class FractionTest {
     @Test
     void fraction_multiply_fraction_returns_fraction() {
         assertEquals(Fraction.of(10, 3), Fraction.of(4, 3).multiply(Fraction.of(5, 2)));
+    }
+
+    @Test
+    void fraction_divide_fraction_returns_fraction() {
+        assertEquals(Fraction.of(8, 15), Fraction.of(4, 3).divide(Fraction.of(5, 2)));
     }
 }
