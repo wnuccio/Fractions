@@ -116,4 +116,9 @@ public class FractionTest {
         assertEquals(Fraction.of(0), Fraction.of(-0, 3));
         assertEquals(Fraction.of(0), Fraction.of(0, -3));
     }
+
+    @Test
+    void fraction_multiply_fraction_returns_fraction() {
+        assertEquals(Fraction.of(10, 3), Fraction.of(4, 3).multiply(Fraction.of(5, 2)));
+    }
 }
