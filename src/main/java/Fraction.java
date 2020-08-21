@@ -8,10 +8,10 @@ public class Fraction {
             if (num >= i && num % i == 0 && den >= i && den % i == 0) {
                 num = num / i;
                 den = den / i;
-            };
+            }
         }
-        Fraction result = new Fraction(num, den);
-        return result;
+
+        return new Fraction(num, den);
     }
 
     private Fraction(int num, int den) {
@@ -36,6 +36,8 @@ public class Fraction {
     }
 
     public Fraction plus(Fraction fraction) {
+        if (fraction.num == 0) return this;
+        if (this.num == 0) return fraction;
         return Fraction.of(this.num + fraction.num);
     }
 

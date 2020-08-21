@@ -48,7 +48,6 @@ public class FractionTest {
         assertEquals(Fraction.of(2, 3), Fraction.of(6, 9));
     }
 
-    @Disabled
     @Test
     public void fraction_plus_zero_remain_the_same() {
         assertEquals(Fraction.of(3, 4), Fraction.of(3, 4).plus(Fraction.of(0)));
@@ -62,13 +61,13 @@ public class FractionTest {
 
     @Disabled
     @Test
-    public void return_sum_between_int_and_fraction_with_not_reduced_result() {
-        assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
-    }
-
-    @Test
-    @Disabled
     public void addTwoFractions() {
         assertEquals(Fraction.of(43,15), Fraction.of(7,3).plus(Fraction.of(4,5)));
+    }
+
+    @Disabled
+    @Test
+    public void return_sum_between_int_and_fraction_with_not_reduced_result() {
+        assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
     }
 }
