@@ -71,4 +71,9 @@ public class FractionTest {
         assertEquals(Fraction.of(1), Fraction.of(1, 3).plus(Fraction.of(2, 3)));
         assertEquals(Fraction.of(2), Fraction.of(2, 3).plus(Fraction.of(4, 3)));
     }
+
+    @Test
+    void fraction_with_sign_assigns_sign_to_numerator() {
+        assertEquals(Fraction.of(-2, 3), Fraction.of(2, -3));
+    }
 }

@@ -25,6 +25,10 @@ public class Fraction {
 
     public static Fraction of(int num, int den) {
         if (den == 0) throw new IllegalArgumentException("Den cannot be zero");
+        if (den < 0) {
+            num = -num;
+            den = -den;
+        }
         return reduceToLowerTerms(num, den);
     }
 
