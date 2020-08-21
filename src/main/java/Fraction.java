@@ -4,14 +4,18 @@ public class Fraction {
 
     private static Fraction reduceToLowerTerms(int num, int den) {
         int[] primeNumbers = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-        for (int i: primeNumbers) {
-            if (num >= i && num % i == 0 && den >= i && den % i == 0) {
-                num = num / i;
-                den = den / i;
+        for (int p: primeNumbers) {
+            while (hasFactor(num, p) && hasFactor(den, p)) {
+                num = num / p;
+                den = den / p;
             }
         }
 
         return new Fraction(num, den);
+    }
+
+    private static boolean hasFactor(int number, int primeNumber) {
+        return number >= primeNumber && number % primeNumber == 0;
     }
 
     private Fraction(int num, int den) {

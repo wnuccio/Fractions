@@ -6,24 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FractionTest {
 
     @Test
-    public void return_0_on_0_plus_0() {
-        assertEquals(Fraction.of(0), Fraction.of(0).plus(Fraction.of(0)));
-    }
-
-    @Test
-    public void return_5_on_2_plus_3() {
-        assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
-    }
-
-
-    @Test
-    public void reduction_when_num_divisible_for_den() {
+    public void reduction_to_an_int() {
         assertEquals(Fraction.of(6, 3), Fraction.of(2));
+        assertEquals(Fraction.of(9, 9), Fraction.of(1));
     }
 
     @Test
     public void reduction_when_den_divisible_for_num() {
         assertEquals(Fraction.of(3, 6), Fraction.of(1, 2));
+    }
+
+    @Test
+    public void reduction_when_num_and_den_have_common_divisor() {
+        assertEquals(Fraction.of(2, 3), Fraction.of(6, 9));
     }
 
     @Test
@@ -43,10 +38,6 @@ public class FractionTest {
         assertEquals(Fraction.of(6, 3), Fraction.of(12, 6));
     }
 
-    @Test
-    public void reduction_when_num_and_den_have_common_divisor() {
-        assertEquals(Fraction.of(2, 3), Fraction.of(6, 9));
-    }
 
     @Test
     public void fraction_plus_zero_remain_the_same() {
@@ -60,13 +51,24 @@ public class FractionTest {
     }
 
     @Test
+    public void return_0_on_0_plus_0() {
+        assertEquals(Fraction.of(0), Fraction.of(0).plus(Fraction.of(0)));
+    }
+
+    @Test
+    public void return_5_on_2_plus_3() {
+        assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
+    }
+
+    @Test
     public void addTwoFractions() {
         assertEquals(Fraction.of(47,15), Fraction.of(7,3).plus(Fraction.of(4,5)));
     }
 
-    @Disabled
     @Test
     void add_between_two_fractions_returns_an_int() {
+        assertEquals(Fraction.of(1), Fraction.of(1, 2).plus(Fraction.of(1, 2)));
         assertEquals(Fraction.of(1), Fraction.of(1, 3).plus(Fraction.of(2, 3)));
+        assertEquals(Fraction.of(2), Fraction.of(2, 3).plus(Fraction.of(4, 3)));
     }
 }
