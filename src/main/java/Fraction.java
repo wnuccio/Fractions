@@ -68,4 +68,8 @@ public class Fraction {
                 ", den=" + den +
                 '}';
     }
+
+    public Fraction inverse() {
+        return Fraction.of(this.den, this.num);
+    }
 }

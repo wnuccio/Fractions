@@ -86,4 +86,15 @@ public class FractionTest {
         assertEquals(Fraction.of(2, 3), Fraction.of(-2, -3));
     }
 
+    @Test
+    void inverse_of_fraction() {
+        assertEquals(Fraction.of(4, 3), Fraction.of(3, 4).inverse());
+        assertEquals(Fraction.of(3, 4), Fraction.of(4,3).inverse());
+        assertEquals(Fraction.of(-3, 4), Fraction.of(-4,3).inverse());
+    }
+
+    @Test
+    void cannot_invert_a_zero_fraction() {
+        assertThrows(IllegalArgumentException.class, () -> Fraction.of(0).inverse());
+    }
 }
