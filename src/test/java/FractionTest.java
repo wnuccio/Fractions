@@ -130,4 +130,14 @@ public class FractionTest {
     void multiply_by_zero_returns_zero() {
         assertEquals(Fraction.of(0), Fraction.of(3, 4).multiply(Fraction.of(0)));
     }
+
+    @Test
+    void divide_by_zero_returns_zero() {
+        assertThrows(IllegalArgumentException.class, () -> Fraction.of(3, 4).divide(Fraction.of(0)));
+    }
+
+    @Test
+    void multiply_by_one_returns_same_fraction() {
+        assertEquals(Fraction.of(3, 4), Fraction.of(3, 4).multiply(Fraction.of(1)));
+    }
 }
