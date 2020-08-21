@@ -76,4 +76,15 @@ public class FractionTest {
     void fraction_with_sign_assigns_sign_to_numerator() {
         assertEquals(Fraction.of(-2, 3), Fraction.of(2, -3));
     }
+
+    @Test
+    void fraction_with_sign_on_num_and_then_is_actually_positive() {
+        assertEquals(Fraction.of(2, 3), Fraction.of(-2, -3));
+    }
+
+    @Disabled
+    @Test
+    void reduction_on_fraction_with_sign() {
+        assertEquals(Fraction.of(-2), Fraction.of(-6, 3));
+    }
 }
