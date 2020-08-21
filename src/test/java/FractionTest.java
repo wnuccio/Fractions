@@ -145,4 +145,9 @@ public class FractionTest {
     void multiply_by_inverse_returns_one() {
         assertEquals(Fraction.of(1), Fraction.of(3, 4).multiply(Fraction.of(4, 3)));
     }
+
+    @Test
+    void cannot_inverse_zero() {
+        assertThrows(IllegalArgumentException.class, () -> Fraction.of(0).inverse());
+    }
 }
