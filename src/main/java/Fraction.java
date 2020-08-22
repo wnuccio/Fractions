@@ -25,7 +25,6 @@ public class Fraction {
         if (original.num == 0) return Fraction.of(0);
 
         int numSign = defineSign(original);
-
         Fraction result = reduceToLowerTerms(original);
         result = applySign(result, numSign);
         return result;
