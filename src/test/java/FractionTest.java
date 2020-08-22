@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FractionTest {
 
     @Test
-    public void reduction_to_an_int() {
+    public void reduction_to_an_integer() {
         assertEquals(Fraction.of(6, 3), Fraction.of(2));
         assertEquals(Fraction.of(9, 9), Fraction.of(1));
     }
@@ -44,23 +44,23 @@ public class FractionTest {
 
 
     @Test
-    public void fraction_plus_zero_remain_the_same() {
+    public void fraction_plus_zero() {
         assertEquals(Fraction.of(3, 4), Fraction.of(3, 4).plus(Fraction.of(0)));
         assertEquals(Fraction.of(3, 4), Fraction.of(0).plus(Fraction.of(3, 4)));
     }
 
     @Test
-    public void cannot_instantiate_fractions_with_zero_at_denominator() {
+    public void cannot_have_fractions_with_zero_denominator() {
         assertThrows(IllegalArgumentException.class, () -> Fraction.of(2, 0));
     }
 
     @Test
-    public void zero_plus_zero_returns_zero() {
+    public void zero_plus_zero() {
         assertEquals(Fraction.of(0), Fraction.of(0).plus(Fraction.of(0)));
     }
 
     @Test
-    public void int_plus_int_returns_int() {
+    public void integer_plus_integer() {
         assertEquals(Fraction.of(5), Fraction.of(2).plus(Fraction.of(3)));
     }
 
@@ -77,7 +77,7 @@ public class FractionTest {
     }
 
     @Test
-    void fraction_with_sign_has_signs_on_numerator_only() {
+    void fraction_has_sign_on_numerator_only() {
         assertEquals(Fraction.of(-2, 3), Fraction.of(2, -3));
     }
 
@@ -99,7 +99,7 @@ public class FractionTest {
     }
 
     @Test
-    void fraction_minus_fraction_returns_fraction() {
+    void fraction_minus_fraction() {
         assertEquals(Fraction.of(-7, 6), Fraction.of(4, 3).minus(Fraction.of(5, 2)));
     }
 
@@ -110,19 +110,19 @@ public class FractionTest {
     }
 
     @Test
-    void zero_fraction_has_no_meaningful_sign() {
+    void zero_fraction_is_always_positive() {
         assertEquals(Fraction.of(0), Fraction.of(-0));
         assertEquals(Fraction.of(0), Fraction.of(-0, 3));
         assertEquals(Fraction.of(0), Fraction.of(0, -3));
     }
 
     @Test
-    void fraction_multiply_fraction_returns_fraction() {
+    void fraction_multiply_fraction() {
         assertEquals(Fraction.of(10, 3), Fraction.of(4, 3).multiply(Fraction.of(5, 2)));
     }
 
     @Test
-    void fraction_divide_fraction_returns_fraction() {
+    void fraction_divide_fraction() {
         assertEquals(Fraction.of(8, 15), Fraction.of(4, 3).divide(Fraction.of(5, 2)));
     }
 
@@ -132,17 +132,17 @@ public class FractionTest {
     }
 
     @Test
-    void divide_by_zero_returns_zero() {
+    void cannot_divide_by_zero() {
         assertThrows(IllegalArgumentException.class, () -> Fraction.of(3, 4).divide(Fraction.of(0)));
     }
 
     @Test
-    void multiply_by_one_returns_same_fraction() {
+    void multiply_by_one() {
         assertEquals(Fraction.of(3, 4), Fraction.of(3, 4).multiply(Fraction.of(1)));
     }
 
     @Test
-    void multiply_by_inverse_returns_one() {
+    void multiply_by_inverse() {
         assertEquals(Fraction.of(1), Fraction.of(3, 4).multiply(Fraction.of(4, 3)));
     }
 
