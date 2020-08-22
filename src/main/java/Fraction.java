@@ -16,21 +16,17 @@ public class Fraction {
         return new Fraction(_num, _den);
     }
 
-    private static int defineSign(Fraction f) {
-        return (int)(Math.signum(f.num) * Math.signum(f.den));
-    }
-
     private static Fraction normalize(Fraction original) {
         if (original.den == 0) throw new IllegalArgumentException("Den cannot be zero");
         if (original.num == 0) return Fraction.of(0);
 
-        int numSign = defineSign(original);
         Fraction result = reduceToLowerTerms(original);
-        result = applySign(result, numSign);
+        result = applySign(result, original);
         return result;
     }
 
-    private static Fraction applySign(Fraction fraction, int numSign) {
+    private static Fraction applySign(Fraction fraction, Fraction original) {
+        int numSign = (int) (Math.signum(original.num) * Math.signum(original.den));
         int num = Math.abs(fraction.num) * numSign;
         int den = Math.abs(fraction.den);
         return new Fraction(num, den);
